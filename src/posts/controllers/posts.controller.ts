@@ -2,6 +2,7 @@ import { Controller, Get, Post, Body, Patch, Param, Delete } from '@nestjs/commo
 import { PostsService } from '../services/posts.service';
 import { CreatePostDto, UpdatePostDto, ResponsePostDto } from '../dtos/post.dto';
 
+
 @Controller('posts')
 export class PostsController {
   constructor(private readonly postsService: PostsService) {}
@@ -14,6 +15,11 @@ export class PostsController {
   @Get()
   findAll() {
     return this.postsService.findAll();
+  }
+
+  @Get('/home')
+  Home() {
+    return this.postsService.findHome(0, 'lasts');
   }
 
   @Get(':id')
