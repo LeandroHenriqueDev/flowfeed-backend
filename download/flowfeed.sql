@@ -5,7 +5,7 @@
 -- Dumped from database version 17.5
 -- Dumped by pg_dump version 17.5
 
--- Started on 2025-06-04 11:02:43
+-- Started on 2025-06-08 13:29:45
 
 SET statement_timeout = 0;
 SET lock_timeout = 0;
@@ -24,7 +24,7 @@ SET default_tablespace = '';
 SET default_table_access_method = heap;
 
 --
--- TOC entry 222 (class 1259 OID 16422)
+-- TOC entry 222 (class 1259 OID 16508)
 -- Name: comments; Type: TABLE; Schema: public; Owner: postgres
 --
 
@@ -40,7 +40,7 @@ CREATE TABLE public.comments (
 ALTER TABLE public.comments OWNER TO postgres;
 
 --
--- TOC entry 221 (class 1259 OID 16421)
+-- TOC entry 221 (class 1259 OID 16507)
 -- Name: comments_id_seq; Type: SEQUENCE; Schema: public; Owner: postgres
 --
 
@@ -65,7 +65,7 @@ ALTER SEQUENCE public.comments_id_seq OWNED BY public.comments.id;
 
 
 --
--- TOC entry 224 (class 1259 OID 16442)
+-- TOC entry 224 (class 1259 OID 16528)
 -- Name: likes; Type: TABLE; Schema: public; Owner: postgres
 --
 
@@ -79,7 +79,7 @@ CREATE TABLE public.likes (
 ALTER TABLE public.likes OWNER TO postgres;
 
 --
--- TOC entry 223 (class 1259 OID 16441)
+-- TOC entry 223 (class 1259 OID 16527)
 -- Name: likes_id_seq; Type: SEQUENCE; Schema: public; Owner: postgres
 --
 
@@ -104,7 +104,7 @@ ALTER SEQUENCE public.likes_id_seq OWNED BY public.likes.id;
 
 
 --
--- TOC entry 220 (class 1259 OID 16407)
+-- TOC entry 220 (class 1259 OID 16493)
 -- Name: posts; Type: TABLE; Schema: public; Owner: postgres
 --
 
@@ -120,7 +120,7 @@ CREATE TABLE public.posts (
 ALTER TABLE public.posts OWNER TO postgres;
 
 --
--- TOC entry 219 (class 1259 OID 16406)
+-- TOC entry 219 (class 1259 OID 16492)
 -- Name: posts_id_seq; Type: SEQUENCE; Schema: public; Owner: postgres
 --
 
@@ -145,7 +145,7 @@ ALTER SEQUENCE public.posts_id_seq OWNED BY public.posts.id;
 
 
 --
--- TOC entry 218 (class 1259 OID 16395)
+-- TOC entry 218 (class 1259 OID 16481)
 -- Name: users; Type: TABLE; Schema: public; Owner: postgres
 --
 
@@ -162,7 +162,7 @@ CREATE TABLE public.users (
 ALTER TABLE public.users OWNER TO postgres;
 
 --
--- TOC entry 217 (class 1259 OID 16394)
+-- TOC entry 217 (class 1259 OID 16480)
 -- Name: users_id_seq; Type: SEQUENCE; Schema: public; Owner: postgres
 --
 
@@ -187,7 +187,7 @@ ALTER SEQUENCE public.users_id_seq OWNED BY public.users.id;
 
 
 --
--- TOC entry 4660 (class 2604 OID 16425)
+-- TOC entry 4660 (class 2604 OID 16511)
 -- Name: comments id; Type: DEFAULT; Schema: public; Owner: postgres
 --
 
@@ -195,7 +195,7 @@ ALTER TABLE ONLY public.comments ALTER COLUMN id SET DEFAULT nextval('public.com
 
 
 --
--- TOC entry 4662 (class 2604 OID 16445)
+-- TOC entry 4662 (class 2604 OID 16531)
 -- Name: likes id; Type: DEFAULT; Schema: public; Owner: postgres
 --
 
@@ -203,7 +203,7 @@ ALTER TABLE ONLY public.likes ALTER COLUMN id SET DEFAULT nextval('public.likes_
 
 
 --
--- TOC entry 4658 (class 2604 OID 16410)
+-- TOC entry 4658 (class 2604 OID 16496)
 -- Name: posts id; Type: DEFAULT; Schema: public; Owner: postgres
 --
 
@@ -211,7 +211,7 @@ ALTER TABLE ONLY public.posts ALTER COLUMN id SET DEFAULT nextval('public.posts_
 
 
 --
--- TOC entry 4656 (class 2604 OID 16398)
+-- TOC entry 4656 (class 2604 OID 16484)
 -- Name: users id; Type: DEFAULT; Schema: public; Owner: postgres
 --
 
@@ -219,43 +219,48 @@ ALTER TABLE ONLY public.users ALTER COLUMN id SET DEFAULT nextval('public.users_
 
 
 --
--- TOC entry 4830 (class 0 OID 16422)
+-- TOC entry 4830 (class 0 OID 16508)
 -- Dependencies: 222
 -- Data for Name: comments; Type: TABLE DATA; Schema: public; Owner: postgres
 --
 
-COPY public.comments (id, post_id, user_id, text, posted_at) FROM stdin;
-\.
 
 
 --
--- TOC entry 4832 (class 0 OID 16442)
+-- TOC entry 4832 (class 0 OID 16528)
 -- Dependencies: 224
 -- Data for Name: likes; Type: TABLE DATA; Schema: public; Owner: postgres
 --
 
-COPY public.likes (id, post_id, user_id) FROM stdin;
-\.
+INSERT INTO public.likes VALUES (1, 1, 1);
+INSERT INTO public.likes VALUES (2, 1, 2);
+INSERT INTO public.likes VALUES (3, 1, 3);
+INSERT INTO public.likes VALUES (4, 1, 4);
 
 
 --
--- TOC entry 4828 (class 0 OID 16407)
+-- TOC entry 4828 (class 0 OID 16493)
 -- Dependencies: 220
 -- Data for Name: posts; Type: TABLE DATA; Schema: public; Owner: postgres
 --
 
-COPY public.posts (id, user_id, description, image_url, posted_at) FROM stdin;
-\.
+INSERT INTO public.posts VALUES (1, 1, 'Descrição', 'Rua_Taboão.png', '2025-06-07 00:00:00');
+INSERT INTO public.posts VALUES (2, 2, 'Essa rua sem asfalto', 'Rua_Jiboia.png', '2025-06-08 00:00:00');
+INSERT INTO public.posts VALUES (3, 1, 'Melhorar o tempo desse semaforo', 'semaforo.png', '2025-06-08 00:00:00');
+INSERT INTO public.posts VALUES (4, 3, 'Semaforos TOP', NULL, '2025-06-08 00:00:00');
+INSERT INTO public.posts VALUES (5, 3, 'Necessita adicionar semaforo na Rua de fulano', 'Rua_Fulano.png', '2025-06-08 00:00:00');
 
 
 --
--- TOC entry 4826 (class 0 OID 16395)
+-- TOC entry 4826 (class 0 OID 16481)
 -- Dependencies: 218
 -- Data for Name: users; Type: TABLE DATA; Schema: public; Owner: postgres
 --
 
-COPY public.users (id, name, email, password_hash, profile_picture, created_at) FROM stdin;
-\.
+INSERT INTO public.users VALUES (1, 'Leandro', 'leandro@gmail.com', 'aasjdkasljdaslskd', NULL, '2025-06-07 00:00:00');
+INSERT INTO public.users VALUES (2, 'Alguém', 'alguem@gmail.com', 'senhaalguem', NULL, '2025-06-07 00:00:00');
+INSERT INTO public.users VALUES (3, 'Zé', 'Ze@gmail.com', 'Ze', NULL, '2025-06-07 00:00:00');
+INSERT INTO public.users VALUES (4, 'Filho', 'filhoZe@gmail.com', 'Filho', NULL, '2025-06-07 00:00:00');
 
 
 --
@@ -273,7 +278,7 @@ SELECT pg_catalog.setval('public.comments_id_seq', 1, false);
 -- Name: likes_id_seq; Type: SEQUENCE SET; Schema: public; Owner: postgres
 --
 
-SELECT pg_catalog.setval('public.likes_id_seq', 1, false);
+SELECT pg_catalog.setval('public.likes_id_seq', 4, true);
 
 
 --
@@ -282,7 +287,7 @@ SELECT pg_catalog.setval('public.likes_id_seq', 1, false);
 -- Name: posts_id_seq; Type: SEQUENCE SET; Schema: public; Owner: postgres
 --
 
-SELECT pg_catalog.setval('public.posts_id_seq', 1, false);
+SELECT pg_catalog.setval('public.posts_id_seq', 5, true);
 
 
 --
@@ -291,11 +296,11 @@ SELECT pg_catalog.setval('public.posts_id_seq', 1, false);
 -- Name: users_id_seq; Type: SEQUENCE SET; Schema: public; Owner: postgres
 --
 
-SELECT pg_catalog.setval('public.users_id_seq', 1, false);
+SELECT pg_catalog.setval('public.users_id_seq', 4, true);
 
 
 --
--- TOC entry 4670 (class 2606 OID 16430)
+-- TOC entry 4670 (class 2606 OID 16516)
 -- Name: comments comments_pkey; Type: CONSTRAINT; Schema: public; Owner: postgres
 --
 
@@ -304,7 +309,7 @@ ALTER TABLE ONLY public.comments
 
 
 --
--- TOC entry 4672 (class 2606 OID 16447)
+-- TOC entry 4672 (class 2606 OID 16533)
 -- Name: likes likes_pkey; Type: CONSTRAINT; Schema: public; Owner: postgres
 --
 
@@ -313,7 +318,7 @@ ALTER TABLE ONLY public.likes
 
 
 --
--- TOC entry 4674 (class 2606 OID 16449)
+-- TOC entry 4674 (class 2606 OID 16535)
 -- Name: likes likes_post_id_user_id_key; Type: CONSTRAINT; Schema: public; Owner: postgres
 --
 
@@ -322,7 +327,7 @@ ALTER TABLE ONLY public.likes
 
 
 --
--- TOC entry 4668 (class 2606 OID 16415)
+-- TOC entry 4668 (class 2606 OID 16501)
 -- Name: posts posts_pkey; Type: CONSTRAINT; Schema: public; Owner: postgres
 --
 
@@ -331,7 +336,7 @@ ALTER TABLE ONLY public.posts
 
 
 --
--- TOC entry 4664 (class 2606 OID 16405)
+-- TOC entry 4664 (class 2606 OID 16491)
 -- Name: users users_email_key; Type: CONSTRAINT; Schema: public; Owner: postgres
 --
 
@@ -340,7 +345,7 @@ ALTER TABLE ONLY public.users
 
 
 --
--- TOC entry 4666 (class 2606 OID 16403)
+-- TOC entry 4666 (class 2606 OID 16489)
 -- Name: users users_pkey; Type: CONSTRAINT; Schema: public; Owner: postgres
 --
 
@@ -349,7 +354,7 @@ ALTER TABLE ONLY public.users
 
 
 --
--- TOC entry 4676 (class 2606 OID 16431)
+-- TOC entry 4676 (class 2606 OID 16517)
 -- Name: comments comments_post_id_fkey; Type: FK CONSTRAINT; Schema: public; Owner: postgres
 --
 
@@ -358,7 +363,7 @@ ALTER TABLE ONLY public.comments
 
 
 --
--- TOC entry 4677 (class 2606 OID 16436)
+-- TOC entry 4677 (class 2606 OID 16522)
 -- Name: comments comments_user_id_fkey; Type: FK CONSTRAINT; Schema: public; Owner: postgres
 --
 
@@ -367,7 +372,7 @@ ALTER TABLE ONLY public.comments
 
 
 --
--- TOC entry 4678 (class 2606 OID 16450)
+-- TOC entry 4678 (class 2606 OID 16536)
 -- Name: likes likes_post_id_fkey; Type: FK CONSTRAINT; Schema: public; Owner: postgres
 --
 
@@ -376,7 +381,7 @@ ALTER TABLE ONLY public.likes
 
 
 --
--- TOC entry 4679 (class 2606 OID 16455)
+-- TOC entry 4679 (class 2606 OID 16541)
 -- Name: likes likes_user_id_fkey; Type: FK CONSTRAINT; Schema: public; Owner: postgres
 --
 
@@ -385,7 +390,7 @@ ALTER TABLE ONLY public.likes
 
 
 --
--- TOC entry 4675 (class 2606 OID 16416)
+-- TOC entry 4675 (class 2606 OID 16502)
 -- Name: posts posts_user_id_fkey; Type: FK CONSTRAINT; Schema: public; Owner: postgres
 --
 
@@ -393,7 +398,7 @@ ALTER TABLE ONLY public.posts
     ADD CONSTRAINT posts_user_id_fkey FOREIGN KEY (user_id) REFERENCES public.users(id) ON DELETE CASCADE;
 
 
--- Completed on 2025-06-04 11:02:43
+-- Completed on 2025-06-08 13:29:46
 
 --
 -- PostgreSQL database dump complete
