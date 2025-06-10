@@ -9,6 +9,6 @@ import { DbModule } from 'src/common/db/db.module';
   // e sim o módulo da qual ele fazer parte
   controllers: [UsersController],
   providers: [UsersService],
-
+  exports: [UsersService],
 })
 export class UsersModule {}
